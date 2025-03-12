@@ -4,8 +4,13 @@ import Test from '../components/Test.vue';
 ---
 
 <Layout>
-	<Test client:load/>
+  <p id="aaa">Welcome to your new Astro site.</p>
+    <Test client:load/>
   <h1>Hello, Astro!</h1>
 </Layout>
 <script>
+  const element = document.getElementById('aaa');
+  if (element) {
+    element.innerText = (Date.now()).toString();
+  }
 </script>
