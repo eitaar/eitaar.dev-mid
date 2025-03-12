@@ -1,16 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Test from '../components/Test.vue';
+const now = new Date()
 ---
 
-<Layout>
-  <p id="aaa">Welcome to your new Astro site.</p>
-    <Test client:load/>
-  <h1>Hello, Astro!</h1>
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>現在<span class="text-gradient">{`${now.getHours()}時${now.getMinutes()}分${now.getSeconds()}秒`}</span>です</h1>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+</main>
 </Layout>
-<script>
-  const element = document.getElementById('aaa');
-  if (element) {
-    element.innerText = (Date.now()).toString();
-  }
-</script>
