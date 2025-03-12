@@ -1,11 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Test from '../components/Test.vue';
+import "../styles/global.css";
 const now = new Date()
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>現在<span class="text-gradient">{`${now.getHours()}時${now.getMinutes()}分${now.getSeconds()}秒`}</span>です</h1>
+		<h1>現在<span class="text-xl">{`${now.getHours()}時${now.getMinutes()}分${now.getSeconds()}秒`}</span>です</h1>
 		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
 </main>
+<Test />
 </Layout>
