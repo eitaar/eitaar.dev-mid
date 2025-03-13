@@ -1,9 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: light, dark , night --default,corporate;
-}
 
 @theme {
-  --font-Roboto: 'Roboto', sans-serif;
-  --font-Libre: 'Libre Baskerville', serif;
+  --font-Roboto: "Roboto", sans-serif; 
+  --font-Teko: "Teko", sans-serif;
+  --font-Quantico: "Quantico",'Teko','Roboto', sans-serif;
+  
+  --tracking-tightest: -0.075em; 
+}
+
+@plugin "daisyui" {
+  themes: light, dark , night --default,corporate;
 }
