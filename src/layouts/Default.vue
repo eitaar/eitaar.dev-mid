@@ -24,6 +24,7 @@
   </header>
 </template>
 <script setup>
+import "../styles/global.css";
 import Github from '../components/svg/github.vue';
 import Sun from '../components/svg/sun.vue';
 import Moon from '../components/svg/moon.vue';
