@@ -1,9 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Title from '../components/Title.vue'
+import Top from '../components/Top.vue'
 import "../styles/global.css";
+import { Image } from 'astro:assets';
+import wahoot from '../assets/img/wahoot.png';
+import { Icon } from 'astro-icon/components';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 ---
 
-<Layout title="eitaar.dev">
-	<Title />
+<Layout title="eitaar.dev" loadNavBar=false>
+    <Top class="absolute">
+        <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
+    </Top>
+    <!-- Add extra space at the bottom -->
+    <div style="height: 100vh;"></div>
 </Layout>
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+console.log("using GSAP: ", gsap.version);
+
+gsap.to('.TOP', {
+	x: '-70vw',
+  scrollTrigger: {
+    trigger: '.TOP',
+    start: 'top+=1vh top',
+    end: 'bottom top',
+    markers: false,
+    scrub: true,
+		pin: true,
+  }
+});
+</script>
