@@ -17,16 +17,16 @@ gsap.registerPlugin(ScrollTrigger);
         <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
     </Top>
     <!-- Add extra space at the bottom -->
-    <div style="height: 100vh;">
-        <p>hello</p>
+    <div class="h-screen absolute top-[100vh] left-0 w-full">
+        <h2 class="text-center text-[3.5vw] font-bold font-Quantico link PROJECTS">Projects</h2>
     </div>
 </Layout>
 
 <script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 console.log("using GSAP: ", gsap.version);
 
@@ -35,18 +35,6 @@ gsap.to('.TOP', {
   x: '-40vw',
   scrollTrigger: {
     trigger: '.TOP',
-    start: 'top+=1vh top',
-    end: 'bottom top',
-    markers: false,
-    scrub: true,
-    pin: true,
-  }
-});
-
-gsap.set('.IMG', {
-  y: '0vh',
-  scrollTrigger: {
-    trigger: '.IMG',
     start: 'top+=1vh top',
     end: 'bottom top',
     markers: false,
