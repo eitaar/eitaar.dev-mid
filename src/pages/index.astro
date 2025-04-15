@@ -12,9 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
 ---
 
 <Layout title="eitaar.dev" loadNavBar=false>
-	<Image src={wahoot} alt="Wahoot" class="absolute opacity-60 IMG h-screen object-cover"/> 
+    <Image src={wahoot} alt="Wahoot" class="absolute opacity-60 IMG h-screen object-cover"/> 
     <Top class="absolute">
         <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
+        <p class="link" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
     <!-- Add extra space at the bottom -->
     <div class="h-screen absolute top-[100vh] left-0 w-full">
@@ -43,4 +44,22 @@ gsap.to('.TOP', {
   }
 });
 
+function scrollToProjects() {
+  const target = document.querySelector('.PROJECTS');
+  if (target) {
+    gsap.to(window, { duration: 0.1, scrollTo: { y: target } });
+  } else {
+    console.error('Element with class .PROJECTS not found');
+  }
+}
+
+// Attach the click event listener to the link
+document.addEventListener('DOMContentLoaded', () => {
+  const link = document.getElementById('projectLink');
+  if (link) {
+    link.addEventListener('click', scrollToProjects);
+  } else {
+    console.error('Element with id #scrollToProjectsLink not found');
+  }
+});
 </script>
