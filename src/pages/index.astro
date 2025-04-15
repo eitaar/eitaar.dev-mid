@@ -15,11 +15,24 @@ gsap.registerPlugin(ScrollTrigger);
     <Image src={wahoot} alt="Wahoot" class="absolute opacity-60 IMG h-screen object-cover"/> 
     <Top class="absolute">
         <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
+        <p class="link" slot="AboutLink" id="aboutLink">About</p>
         <p class="link" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
     <!-- Add extra space at the bottom -->
-    <div class="h-screen absolute top-[100vh] left-0 w-full">
-        <h2 class="text-center text-[3.5vw] font-bold font-Quantico link PROJECTS">Projects</h2>
+    <h2 class="text-center text-[3.5vw] font-bold font-Quantico link ABOUT mb-4">About</h2>
+    <div class="h-screen flex flex-col items-center justify-top">
+      <div class="card w-3/4 shadow-sm card-border bg-base-300">
+        <div class="card-body">
+          <h2 class="card-title">Test</h2>
+          <p>this commit is for changing theme, so forget abt the card</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now (nothing)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="text-center text-[3.5vw] font-bold font-Quantico link PROJECTS">Projects</h2>
+    <div class="h-screen flex flex-col items-center justify-center">
     </div>
 </Layout>
 
@@ -30,6 +43,12 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 console.log("using GSAP: ", gsap.version);
+
+//scrolls to the top of the page on refresh
+history.scrollRestoration = "manual";
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
 
 // Animate the .TOP element
 gsap.to('.TOP', {
@@ -44,10 +63,19 @@ gsap.to('.TOP', {
   }
 });
 
+function scrollToAbout() {
+  const target = document.querySelector('.ABOUT');
+  if (target) {
+    gsap.to(window, { duration: 0.125, scrollTo: { y: target } });
+  } else {
+    console.error('Element with class .ABOUT not found');
+  }
+}
+
 function scrollToProjects() {
   const target = document.querySelector('.PROJECTS');
   if (target) {
-    gsap.to(window, { duration: 0.1, scrollTo: { y: target } });
+    gsap.to(window, { duration: 0.25, scrollTo: { y: target } });
   } else {
     console.error('Element with class .PROJECTS not found');
   }
@@ -55,11 +83,13 @@ function scrollToProjects() {
 
 // Attach the click event listener to the link
 document.addEventListener('DOMContentLoaded', () => {
-  const link = document.getElementById('projectLink');
-  if (link) {
-    link.addEventListener('click', scrollToProjects);
+  const plink = document.getElementById('projectLink');
+  const alink = document.getElementById('aboutLink');
+  if (plink && alink) {
+    plink.addEventListener('click', scrollToProjects);
+    alink.addEventListener('click', scrollToAbout);
   } else {
-    console.error('Element with id #scrollToProjectsLink not found');
+    console.error('err');
   }
 });
 </script>

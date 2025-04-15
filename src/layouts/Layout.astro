@@ -8,7 +8,7 @@ const {title,loadNavBar} = Astro.props;
     <meta charset="utf-8" />
     <script is:inline>
       if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "corporate");
+        document.documentElement.setAttribute("data-theme", "nord");
       } else
         document.documentElement.setAttribute("data-theme",localStorage.getItem("theme"));
     </script>
