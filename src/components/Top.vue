@@ -4,9 +4,9 @@
       <div class="h-screen w-1/2 ml-[2.5vw]">
         <h1 class="text-[5vw] text-left font-bold font-Quantico tracking-tightest p-0 text-base-content">eitaar.dev</h1>
         <div class="text-[2.5vw] text-left font-bold font-Quantico text-base-content pt-5">
-          <p class="link" @click="scrollToProjects">Projects</p>
+          <slot name="AboutLink" />
+          <slot name="ProjectLink"/>
           <p class="link">Blog</p>
-          <p class="link">About</p>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
     </label>
     <!-- Dark/Light mode toggle btn -->
     <label class="swap swap-rotate btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" aria-label="toggle theme">
-      <input type="checkbox" data-toggle-theme="night,corporate" />
+      <input type="checkbox" data-toggle-theme="night,nord" />
       <Moon class="w-full" />
       <Sun class="w-full" />
     </label>
@@ -33,16 +33,6 @@ import Moon from '../components/svg/moon.vue';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
-
-function scrollToProjects() {
-  const target = document.querySelector('.PROJECTS');
-  if (target) {
-    gsap.to(window, { duration: 0.1, scrollTo: { y: target} });
-  } else {
-    console.error('Element with class .PROJECTS not found');
-  }
-}
-
 function openUrl(url) {
   window.open(url, '_blank');
 }

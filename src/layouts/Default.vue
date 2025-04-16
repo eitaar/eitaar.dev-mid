@@ -12,8 +12,8 @@
           <Github class=" absolute h-10 w-10 fill-current"/>
         </label>
         <!--Dark/Light mode toggle btn-->
-        <label class="swap swap-rotate btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" aria-label="toggle theme">
-          <input type="checkbox" data-toggle-theme="night,corporate"/>
+        <label class="swap swap-rotate btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" aria-label="toggle-theme">
+          <input type="checkbox" data-toggle-theme="night,nord"/>
           <!-- sun icon -->
           <Sun class=" w-full"/>
           <!-- moon icon -->
