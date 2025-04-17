@@ -1,86 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Top from '../components/Top.vue';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Interests from '../components/Interests.astro';
+import { Application } from 'pixi.js';
 import "../styles/global.css";
 import { Image } from 'astro:assets';
-import wahoot from '../assets/img/wahoot.png';
+import wahoot from '../assets/img/wahoot.png';  
 import avatar from '../assets/img/avatar.png';
 import { Icon } from 'astro-icon/components';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 gsap.registerPlugin(ScrollTrigger);
 ---
 
 <Layout title="eitaar.dev" loadNavBar=false>
-    <Image src={wahoot} alt="Wahoot" class="absolute opacity-60 IMG h-screen object-cover"/> 
+    <div class="absolute h-screen w-full bg-neutral" id="PIXI"/> 
     <Top class="absolute">
         <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
         <p class="link text-3xl lg:text-5xl" slot="AboutLink" id="aboutLink">About</p>
         <p class="link text-3xl lg:text-5xl" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
-    <!-- Add extra space at the bottom -->
+
     <h2 class="text-center text-5xl font-bold font-Quantico link ABOUT h-1/2 my-4">About</h2>
     <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap h-[80vh]">
       <!-- cards -->
-      <div class="bg-base-200 w-full lg:w-11/20 rounded-lg">
-        <div class="flex gap-3 py-4 px-4 flex-col lg:flex-row justify-start items-center lg:items-start ">
-          <Image src={avatar} alt="Avatar" class="rounded-lg lg:w-1/7 max-w-[12.5vw] min-w-[10vmax] lg:min-w-[10vmin] shadow-lg" />
-          <div class="my-auto">
-            <div class="flex flex-col items-start justify-start flex-wrap">
-              <h1 class="font-Quantico text-6xl lg:text-4xl font-bold tracking-tighter">eitaar</h1>
-              <h2 class="font-Quantico text-3xl lg:text-2xl tracking-tighter text-base-content/70 mx-auto">student?</h2>
-            </div>
-          </div>
-          <div class="divider lg:divider-horizontal my-0 mx-0"></div>
-          <div class="break-all font-Quantico text-2xl lg:text-md text-center lg:text-left h-full w-full tracking-tighter">
-            <p>16 | Coding beginner</p>
-            <p>UTC TIME ZONE</p>
-            <p>Learning front-end languages</p>
-          </div>            
-        </div>
-      </div>
-
-      <div class="bg-base-200 w-full lg:w-11/20 rounded-lg">
-        <div class="flex gap-3 py-4 px-4 flex-col justify-start items-center lg:items-start ">
-          <h1 class="text-3xl font-bold font-Quantico text-center w-full link">Skills</h1>
-          <div class="flex flex-wrap flex-row gap-2 items-center justify-center w-full">
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=js" alt="JavaScript Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=nuxt" alt="Nuxt.js Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=vue" alt="Vue.js Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=astro" alt="Astro Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=html" alt="HTML Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=css" alt="CSS Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=tailwind" alt="Tailwind CSS Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=python" alt="Python Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=md" alt="Markdown Logo" loading="lazy"/>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-base-200 w-full lg:w-11/20 rounded-lg">
-        <div class="flex gap-3 py-4 px-4 flex-col justify-start items-center lg:items-start ">
-          <h1 class="text-3xl font-bold font-Quantico text-center w-full link">Interests</h1>
-          <div class="flex flex-wrap flex-row gap-2 items-center justify-center w-full">
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=ts" alt="TypeScript Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=arduino" alt="Arduino Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=cpp" alt="C++ Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=rust" alt="Rust Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=blender" alt="Blender Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=flutter" alt="Flutter Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=java" alt="Java Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=p5js" alt="p5.js Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=threejs" alt="Three.js Logo" loading="lazy"/>
-            <img src="https://go-skill-icons.vercel.app/api/icons?i=react" alt="React Logo" loading="lazy"/>
-          </div>
-        </div>
-    </div>
+      <About />
+      <Skills />
+      <Interests />
 </Layout>
 
 <script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { createPixi } from '../assets/src/top.ts'
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 console.log("using GSAP: ", gsap.version);
@@ -92,7 +47,7 @@ window.addEventListener('beforeunload', () => {
 });
 
 // Animate the .TOP element
-if (window.innerWidth > 1024) {
+if (window.innerWidth > 768) {
   gsap.to('.TOP', {
     x: '-40vw',
     scrollTrigger: {
@@ -106,7 +61,8 @@ if (window.innerWidth > 1024) {
   });
 } else {
   gsap.to('.TOP', {
-    x: '0vw',
+    y: '0vh',
+    
     scrollTrigger: {
       trigger: '.TOP',
       start: 'top+=1vh top',
@@ -146,5 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.error('err');
   }
+});
+
+document.addEventListener('DOMContentLoaded', async() => {
+  await createPixi();
 });
 </script>
