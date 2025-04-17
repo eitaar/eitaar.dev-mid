@@ -11,15 +11,15 @@
       </div>
     </div>
   </div>
-  <div class="flex gap-2 fixed top-0 right-0 h-[10vmin] items-center mr-[2vmin] z-20">
+  <div class="flex gap-1 lg:gap-2 fixed top-0 right-0 h-[10vmin] items-start justify-start z-20 mx-2 my-2 lg:mx-4 lg:my-4">
     <!-- Navigation links -->
-    <label class="z-10 btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl relative" aria-label="github"> 
+    <label class="z-10 btn btn-square btn-sm md:btn-md lg:btn-lg xl:btn-xl relative" aria-label="github"> 
       <input type="button" @click="openUrl('https://github.com/eitaar')" />
       <!-- github icon -->
       <slot name="githubIcon" />
     </label>
     <!-- Dark/Light mode toggle btn -->
-    <label class="swap swap-rotate btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" aria-label="toggle theme">
+    <label class="swap swap-rotate btn btn-square btn-sm md:btn-md lg:btn-lg xl:btn-xl" aria-label="toggle theme">
       <input type="checkbox" data-toggle-theme="night,nord" />
       <Moon class="w-full" />
       <Sun class="w-full" />
