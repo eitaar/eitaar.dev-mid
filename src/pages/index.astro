@@ -20,15 +20,24 @@ gsap.registerPlugin(ScrollTrigger);
         <p class="link" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
     <!-- Add extra space at the bottom -->
-    <h2 class="text-center text-[3.5vw] font-bold font-Quantico link ABOUT h-1/2">About</h2>
-    <div class="w-9/10 mx-auto">
-      <div class="hero bg-base-200 w-full lg:w-1/3 h-[85vh] rounded-md">
-        <div class="hero-content flex-row justify-start w-full h-full items-center lg:items-start">
-          <Image src={avatar} alt="Avatar" class="rounded-lg w-1/4 max-w-[15vw] self-start shadow-md" />
-          <div class="self-baseline">
-            <h1 class="font-Quantico text-3xl font-bold tracking-tighter">eitaar</h1>
-            <h3 class="font-Quantico text-2xl font-bold tracking-tighter">16</h3>
+    <h2 class="text-center text-5xl font-bold font-Quantico link ABOUT h-1/2 my-4">About</h2>
+    <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-start justify-start gap-2 flex-wrap h-[80vh]">
+      <!-- cards -->
+      <div class="bg-base-200 w-full lg:w-9/20 rounded-lg">
+        <div class="flex gap-3 py-4 px-4 flex-col lg:flex-row justify-start items-center lg:items-start ">
+          <Image src={avatar} alt="Avatar" class="rounded-lg lg:w-1/7 max-w-[12.5vw] min-w-[10vmax] lg:min-w-[10vmin] shadow-lg" />
+          <div class="my-auto">
+            <div class="flex flex-col items-start justify-start flex-wrap">
+              <h1 class="font-Quantico text-6xl lg:text-4xl font-bold tracking-tighter">eitaar</h1>
+              <h3 class="font-Quantico text-3xl lg:text-2xl tracking-tighter text-base-content/70 mx-auto">student?</h3>
+            </div>
           </div>
+          <div class="divider lg:divider-horizontal my-0 mx-0"></div>
+          <div class="break-all font-Quantico text-2xl lg:text-md text-center lg:text-left h-full w-full tracking-tighter">
+            <p>dummy</p>
+            <p>dummy</p>
+            <p>long dummy can be longer than a pasta</p>
+          </div>            
         </div>
       </div>
     </div>
@@ -44,7 +53,7 @@ console.log("using GSAP: ", gsap.version);
 
 //scrolls to the top of the page on refresh
 history.scrollRestoration = "manual";
-window.addEventListener('beforeunload', () => {
+window.addEventListener('beforeunload', () => { 
   window.scrollTo(0, 0);
 });
 
