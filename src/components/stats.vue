@@ -3,10 +3,10 @@
     <h1 class="text-3xl font-bold font-Quantico text-center w-full link py-1">Github Stats</h1>
     <div class="flex flex-col lg:flex-row gap-2 w-9/10 justify-center object-scale-down">
       <div class="h-full">
-        <img alt="Top Langs" class="h-full min-w-full" src="https://github-readme-stats.vercel.app/api?username=eitaar&theme=tokyonight&hide_border=true&count_private=true"/>
+        <img alt="Top Langs" class="h-full min-w-full" src="https://github-readme-stats.vercel.app/api?username=eitaar&theme=transparent&hide_border=true&count_private=true"/>
       </div>
       <div class="h-full">
-        <img alt="github stats" class=" h-full min-w-full"src="https://github-readme-stats.vercel.app/api/top-langs/?username=eitaar&theme=tokyonight&hide_border=true&layout=compact"/>
+        <img alt="github stats" class=" h-full min-w-full"src="https://github-readme-stats.vercel.app/api/top-langs/?username=eitaar&theme=transparent&hide_border=true&layout=compact"/>
       </div>
     </div>
     <div>
