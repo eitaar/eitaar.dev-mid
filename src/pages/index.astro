@@ -11,14 +11,14 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <Layout title="eitaar.dev" loadNavBar=false>
-    <div class="absolute h-screen w-full bg-neutral" id="PIXI"/> 
+    <div class="absolute h-screen w-full bg-neutral opacity-40 lg:opacity-100 select-none pointer-events-none" id="PIXI"/> 
     <Top class="absolute">
         <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
-        <p class="link text-3xl lg:text-5xl" slot="AboutLink" id="aboutLink">About</p>
-        <p class="link text-3xl lg:text-5xl" slot="ProjectLink" id="projectLink">Projects</p>
+        <p class="link text-3xl lg:text-5xl font-bold tracking-tighter my-1" slot="AboutLink" id="aboutLink">About</p>
+        <p class="link text-3xl lg:text-5xl font-bold tracking-tighter my-1" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
 
-    <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap h-[100vh]">
+    <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap lg:h-screen">
       <h2 class="text-center text-5xl font-bold font-Quantico link ABOUT my-4 w-full">About</h2>
       <!-- cards -->
       <About />

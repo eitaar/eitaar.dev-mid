@@ -3,6 +3,8 @@ import * as PIXI from 'pixi.js';
 export async function createPixi() {
   const canvasArea = document.getElementById('PIXI') as HTMLCanvasElement;
   const app = new PIXI.Application();
+  const direction = window.innerWidth > window.innerHeight ? 'x' : 'y';
+
   await app.init({
     width: canvasArea.offsetWidth,
     height: canvasArea.offsetHeight,
@@ -11,14 +13,18 @@ export async function createPixi() {
   });
 
   //make square graphics
-  const container = new PIXI.Container();
   const square = new PIXI.Graphics()  
     .rect(0,0,50,50)
     .fill(0xFFFFFF);
   square.pivot.x = 25;
   square.pivot.y = 25;
-  square.y = Math.random() * app.renderer.height;
-  square.x = Math.random() * 750 + 25;
+  if (direction === 'x') {
+    square.x = Math.random() * app.renderer.width/4 + 300;
+    square.y = Math.random() * app.renderer.height;
+  } else {
+    square.x = Math.random() * app.renderer.width;
+    square.y = (Math.random() * app.renderer.height/4 * -1) - 300;
+  }
   square.label = "main"
   app.stage.addChild(square);
   let time = 0;
@@ -27,13 +33,17 @@ export async function createPixi() {
     time += delta.deltaTime * 0.5;
     // Update the square's position and rotation
     square.rotation += time * 0.0025;
-    square.x += time * 0.25;
+    if (direction === 'x') {
+      square.x += time * 0.25;
+    } else {
+      square.y += time * 0.25;
+    }
     // Create a new path after updating the square
     const path = new PIXI.Graphics()
       .rect(0,0,50, 50)
       .stroke({ color: 0xffffff, pixelLine: true });
-    path.x = square.x-25;
-    path.y = square.y;
+    path.x = direction == "x"?square.x-25:square.x;
+    path.y = direction == "x"?square.y:square.y-25;
     path.pivot.x = square.pivot.x;
     path.pivot.y = square.pivot.y;
     path.rotation = square.rotation;
@@ -47,8 +57,13 @@ export async function createPixi() {
       if (sqPath.label === "main") {
         continue;
       }
-      const distance = Math.sqrt(Math.pow(sqPath.x - square.x, 2) + Math.pow(sqPath.y - square.y, 2));
-      sqPath.alpha = 1 - (distance / 500);
+      if (direction == "x") {
+        const distance = Math.sqrt(Math.pow(sqPath.x - square.x, 2) + Math.pow(sqPath.y - square.y, 2));
+        sqPath.alpha = 1 - (distance / 500);
+      } else{
+        const distance = Math.sqrt(Math.pow(sqPath.y - square.y, 2) + Math.pow(sqPath.x - square.x, 2));
+        sqPath.alpha = 1 - (distance / 500);
+      }
     }
     
     if (app.stage.children.length > 6) {
@@ -63,6 +78,10 @@ export async function createPixi() {
       square.x = Math.random() * 300;
       square.y = Math.random() * app.renderer.height;
       time = 0;
+    } else if (square.y > app.renderer.height+300) {
+      square.x = Math.random() * app.renderer.width;
+      square.y = -100;
+      time = 0;
     }
   });
 
@@ -71,6 +90,5 @@ export async function createPixi() {
   // Handle window resize
   window.addEventListener('resize', () => {
     app.renderer.resize(canvasArea.offsetWidth, canvasArea.offsetHeight);
-    app.stage.scale.set(window.devicePixelRatio);
   });
 }
