@@ -4,15 +4,10 @@ import Top from '../components/Top.vue';
 import About from '../components/About.astro';
 import Skills from '../components/Skills.astro';
 import Interests from '../components/Interests.astro';
-import { Application } from 'pixi.js';
+import Stats from '../components/stats.vue';
 import "../styles/global.css";
-import { Image } from 'astro:assets';
-import wahoot from '../assets/img/wahoot.png';  
-import avatar from '../assets/img/avatar.png';
 import { Icon } from 'astro-icon/components';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+
 ---
 
 <Layout title="eitaar.dev" loadNavBar=false>
@@ -23,12 +18,18 @@ gsap.registerPlugin(ScrollTrigger);
         <p class="link text-3xl lg:text-5xl" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
 
-    <h2 class="text-center text-5xl font-bold font-Quantico link ABOUT h-1/2 my-4">About</h2>
-    <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap h-[80vh]">
+    <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap h-[100vh]">
+      <h2 class="text-center text-5xl font-bold font-Quantico link ABOUT my-4 w-full">About</h2>
       <!-- cards -->
       <About />
       <Skills />
       <Interests />
+      <Stats client:load />
+    </div>
+    <div class="w-full h-screen">
+      <h2 class="text-center text-5xl font-bold font-Quantico link PROJECTS my-4 w-full">Projects</h2>
+      </div>
+    </div>
 </Layout>
 
 <script>
@@ -47,7 +48,7 @@ window.addEventListener('beforeunload', () => {
 });
 
 // Animate the .TOP element
-if (window.innerWidth > 768) {
+if (window.innerWidth > 1024) {
   gsap.to('.TOP', {
     x: '-40vw',
     scrollTrigger: {
@@ -60,18 +61,6 @@ if (window.innerWidth > 768) {
     }
   });
 } else {
-  gsap.to('.TOP', {
-    y: '0vh',
-    
-    scrollTrigger: {
-      trigger: '.TOP',
-      start: 'top+=1vh top',
-      end: 'bottom top',
-      markers: false,
-      scrub: true,
-      pin: true,
-    }
-  });
 }
 
 function scrollToAbout() {

@@ -11,6 +11,7 @@ export async function createPixi() {
   });
 
   //make square graphics
+  const container = new PIXI.Container();
   const square = new PIXI.Graphics()  
     .rect(0,0,50,50)
     .fill(0xFFFFFF);
@@ -21,7 +22,7 @@ export async function createPixi() {
   square.label = "main"
   app.stage.addChild(square);
   let time = 0;
-  let c = 0
+  let c = 0;
   app.ticker.add((delta) => {
     time += delta.deltaTime * 0.5;
     // Update the square's position and rotation
@@ -58,8 +59,8 @@ export async function createPixi() {
       app.stage.removeChild(app.stage.children[ct]);
     }
 
-    if (square.x > app.renderer.width) {
-      square.x = Math.random() * 600 + 25;
+    if (square.x > app.renderer.width+300) {
+      square.x = Math.random() * 300;
       square.y = Math.random() * app.renderer.height;
       time = 0;
     }
@@ -68,12 +69,6 @@ export async function createPixi() {
 
   canvasArea.appendChild(app.canvas);
   // Handle window resize
-  window.addEventListener('resize', () => {
-    app.renderer.resize(canvasArea.offsetWidth, canvasArea.offsetHeight);
-    app.stage.scale.set(window.devicePixelRatio);
-  });
-
-  canvasArea.appendChild(app.canvas);
   window.addEventListener('resize', () => {
     app.renderer.resize(canvasArea.offsetWidth, canvasArea.offsetHeight);
     app.stage.scale.set(window.devicePixelRatio);
