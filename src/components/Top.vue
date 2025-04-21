@@ -13,8 +13,11 @@
   </div>
   <div class="flex gap-1 lg:gap-2 fixed top-0 right-0 h-[10vmin] items-start justify-start z-20 mx-2 my-2 lg:mx-4 lg:my-4">
     <!-- Navigation links -->
-    <label class="z-10 btn btn-square btn-sm md:btn-md lg:btn-lg xl:btn-xl relative" aria-label="github"> 
-      <input type="button" @click="openUrl('https://github.com/eitaar')" />
+    <label 
+      class="z-10 btn btn-square btn-sm md:btn-md lg:btn-lg xl:btn-xl relative" 
+      aria-label="github" 
+      @click="openUrl('https://github.com/eitaar')"
+    >
       <!-- github icon -->
       <slot name="githubIcon" />
     </label>
@@ -33,6 +36,7 @@ import Moon from '../components/svg/moon.vue';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
+
 function openUrl(url) {
   window.open(url, '_blank');
 }
