@@ -20,7 +20,7 @@ export async function createPixi() {
   square.pivot.y = 25;
   if (direction === 'x') {
     square.x = Math.random() * app.renderer.width/4 + 300;
-    square.y = Math.random() * app.renderer.height;
+    square.y = Math.random() * app.renderer.height/2;
   } else {
     square.x = Math.random() * app.renderer.width;
     square.y = (Math.random() * app.renderer.height/4 * -1) - 300;
@@ -35,6 +35,7 @@ export async function createPixi() {
     square.rotation += time * 0.0025;
     if (direction === 'x') {
       square.x += time * 0.25;
+      square.y += time * 0.25;
     } else {
       square.y += time * 0.25;
     }
@@ -42,8 +43,8 @@ export async function createPixi() {
     const path = new PIXI.Graphics()
       .rect(0,0,50, 50)
       .stroke({ color: 0xffffff, pixelLine: true });
-    path.x = direction == "x"?square.x-25:square.x;
-    path.y = direction == "x"?square.y:square.y-25;
+    path.x = square.x-25;
+    path.y = square.y-25;
     path.pivot.x = square.pivot.x;
     path.pivot.y = square.pivot.y;
     path.rotation = square.rotation;
@@ -76,7 +77,7 @@ export async function createPixi() {
 
     if (square.x > app.renderer.width+300) {
       square.x = Math.random() * 300;
-      square.y = Math.random() * app.renderer.height;
+      square.y = (Math.random() * app.renderer.height)/2;
       time = 0;
     } else if (square.y > app.renderer.height+300) {
       square.x = Math.random() * app.renderer.width;
