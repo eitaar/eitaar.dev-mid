@@ -18,6 +18,14 @@ const {title,loadNavBar} = Astro.props;
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="eitaar.dev" />
+    
+    <!-- Open Graph Protocol (OGP) meta tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="eitaar's website" />
+    <meta property="og:image" content="https://eitaar.dev/avatar.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="eitaar.dev" />
+
 		<title>{title}</title>
   </head>
   <body>
