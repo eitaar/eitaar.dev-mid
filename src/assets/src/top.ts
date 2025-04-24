@@ -39,7 +39,7 @@ export async function createPixi() {
     particleContainer.addChild(p);
     return p;   
   }
-  for (let i = 0; i < 100; i++) spawnParticle();
+  for (let i = 0; i < 150; i++) spawnParticle();
 
   app.ticker.add((delta) => {
     // Animate particles
