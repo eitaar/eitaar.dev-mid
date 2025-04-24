@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import { GlowFilter } from '@pixi/filter-glow';
 
 interface Particle extends PIXI.Graphics {
   vx: number;
