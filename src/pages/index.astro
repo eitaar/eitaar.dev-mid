@@ -5,13 +5,14 @@ import About from '../components/About.astro';
 import Skills from '../components/Skills.astro';
 import Interests from '../components/Interests.astro';
 import Stats from '../components/stats.vue';
+import Pixi from '../components/Pixi.vue';
 import "../styles/global.css";
 import { Icon } from 'astro-icon/components';
 
 ---
 
 <Layout title="eitaar.dev" loadNavBar=false>
-    <div class="absolute h-screen w-full bg-neutral opacity-40 lg:opacity-100 select-none pointer-events-none" id="PIXI"/> 
+    <Pixi client:idle/>
     <Top class="absolute">
         <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
         <p class="link text-3xl lg:text-5xl font-bold tracking-tighter my-1" slot="AboutLink" id="aboutLink">About</p>
@@ -91,9 +92,5 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.error('err');
   }
-});
-
-document.addEventListener('DOMContentLoaded', async() => {
-  await createPixi();
 });
 </script>
