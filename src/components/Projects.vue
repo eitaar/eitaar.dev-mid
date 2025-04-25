@@ -7,7 +7,9 @@
           <div class="flex bg-base-200 h-full font-Quantico">
             <div class="flex flex-col lg:flex-row w-full h-full py-4 px-4">
               <div class="w-full lg:w-3/5">
-                <img :src="project.image" alt="Project Image" class="rounded-xl object-fit"/>
+                <img :src="project.image" alt="Project Image" class="rounded-xl object-fit">
+                <a :href="project.demo" target="_blank" class="absolute inset-0 flex items-center justify-center"/>
+              </img>
               </div>
               <div class="w-full lg:w-2/5 flex flex-col justify-start items-start flex-wrap">
                 <h3 class="w-full text-center font-bold text-3xl lg:text-4xl py-5 underline">{{ project.title }}</h3>
@@ -47,7 +49,7 @@ const projects = ref<Project[]>([
     description: 'My personal portfolio website showcasing my projects and skills. Built with mainly Astro and Tailwind CSS.',
     techStack: ['Astro', 'Vue.js', 'Tailwind CSS', 'DaisyUI', 'PixiJS','TypeScript'],
     image: "/eitaar_dev.png",
-    github: 'https://github.com/yourusername/portfolio',
+    github: 'https://github.com/eitaar/eitaar.dev',
     demo: 'https://eitaar.dev'
   },
   {
@@ -56,7 +58,7 @@ const projects = ref<Project[]>([
     description: 'A third-party Kahoot! client without kahoot.js-latest. Built with Nuxt',
     techStack: ['Nuxt', 'Vue.js', 'JavaScript'],
     image: "/wahoot.png",
-    github: "",
+    github: "https://github.com/eitaar/Wahoot",
     demo: 'https://wahoot.eitaar.dev'
   }
 ]);
