@@ -5,6 +5,7 @@ import About from '../components/About.astro';
 import Skills from '../components/Skills.astro';
 import Interests from '../components/Interests.astro';
 import Stats from '../components/stats.vue';
+import Projects from '../components/Projects.vue';
 import Pixi from '../components/Pixi.vue';
 import "../styles/global.css";
 import { Icon } from 'astro-icon/components';
@@ -12,12 +13,14 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <Layout title="eitaar.dev" loadNavBar=false>
+  <div>
     <Pixi client:idle/>
     <Top class="absolute">
         <Icon name="mdi:github" slot="githubIcon" class="absolute" width={'100%'} height={'100%'}/>
         <p class="link text-3xl lg:text-5xl font-bold tracking-tighter my-1" slot="AboutLink" id="aboutLink">About</p>
         <p class="link text-3xl lg:text-5xl font-bold tracking-tighter my-1" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
+  </div>
 
     <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap lg:min-h-screen">
       <h2 class="text-center text-5xl font-bold font-Quantico link ABOUT my-4 w-full">About</h2>
@@ -27,8 +30,9 @@ import { Icon } from 'astro-icon/components';
       <Interests />
       <Stats client:visible/>
     </div>
-    <div class="w-full h-screen">
+    <div class="w-full h-screen flex flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap overflow-x-hidden">
       <h2 class="text-center text-5xl font-bold font-Quantico link PROJECTS my-4 w-full">Projects</h2>
+      <Projects client:idle />
       </div>
     </div>
 </Layout>

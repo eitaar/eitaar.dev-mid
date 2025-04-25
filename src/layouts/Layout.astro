@@ -24,7 +24,7 @@ const {title,loadNavBar} = Astro.props;
     <meta property="og:description" content="eitaar's website" />
     <meta property="og:image" content="https://eitaar.dev/avatar.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="eitaar.dev" />
+    <meta property="og:site_name" content="eitaar" />
     <meta property="og:url" content="https://eitaar.dev/" />
     <meta property="og:logo" content="https://eitaar.dev/avatar.png" />
 
@@ -32,7 +32,7 @@ const {title,loadNavBar} = Astro.props;
   </head>
   <body>
 			{!loadNavBar && <Default />}
-      <slot class=""/>
+      <slot/>
   </body>
 </html>	
 

@@ -15,7 +15,7 @@ export async function createPixi() {
     height: canvasArea.offsetHeight,
     backgroundAlpha: 0,
     antialias: false,
-    preference: 'webgpu'
+    preference: 'webgpu',
   });
 
   // --- Particle Effects ---
@@ -39,7 +39,7 @@ export async function createPixi() {
     particleContainer.addChild(p);
     return p;   
   }
-  for (let i = 0; i < 150; i++) spawnParticle();
+  for (let i = 0; i < 200; i++) spawnParticle();
 
   app.ticker.add((delta) => {
     // Animate particles
@@ -56,7 +56,6 @@ export async function createPixi() {
       }
     }
   });
-
 
   canvasArea.appendChild(app.canvas);
   // Handle window resize
