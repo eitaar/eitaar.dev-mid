@@ -30,9 +30,9 @@ import { Icon } from 'astro-icon/components';
       <Interests />
       <Stats client:visible/>
     </div>
-    <div class="w-full h-screen flex flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap overflow-x-hidden">
-      <h2 class="text-center text-5xl font-bold font-Quantico link PROJECTS my-4 w-full">Projects</h2>
-      <Projects client:idle />
+    <div class="w-full flex flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap overflow-x-hidden">
+      <h2 class="text-center text-5xl font-bold font-Quantico link PROJECTS w-full">Projects</h2>
+      <Projects client:idle class="my-4"/>
       </div>
     </div>
 </Layout>

@@ -1,13 +1,14 @@
 <template>
 <div class="w-9/10 lg:w-8/10">
   <div class="splide h-full" aria-label="Splideの基本的なHTML">
-    <div class="splide__track h-full rounded-xl">
-      <ul class="splide__list">
-        <li class="splide__slide" v-for="project in projects" :key="project.id">
-          <div class="flex bg-base-200 h-full font-Quantico">
+    <div class="splide__track h-full">
+      <div class="splide__list">
+        <div class="splide__slide bg-base-200" v-for="project in projects" :key="project.id">
+          <div class="flex h-full font-Quantico">
             <div class="flex flex-col lg:flex-row w-full h-full py-4 px-4">
-              <div class="w-full lg:w-3/5">
-                <img :src="project.image" alt="Project Image" class="rounded-xl object-fit"/>
+              <div class="w-full lg:w-3/5"  @click="openUrl(project.demo)">
+                <img :src="project.image" alt="Project Image" class="rounded-xl object-fit cursor-pointer">
+              </img>
               </div>
               <div class="w-full lg:w-2/5 flex flex-col justify-start items-start flex-wrap">
                 <h3 class="w-full text-center font-bold text-3xl lg:text-4xl py-5 underline">{{ project.title }}</h3>
@@ -15,12 +16,11 @@
                   <span v-for="tech in project.techStack" :key="tech" class="badge badge-primary ">{{ tech }}</span>
                 </div>
                 <p class="text-md lg:text-lg text-center w-full py-2 px-4">{{ project.description }}</p>
-                
               </div>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -47,7 +47,7 @@ const projects = ref<Project[]>([
     description: 'My personal portfolio website showcasing my projects and skills. Built with mainly Astro and Tailwind CSS.',
     techStack: ['Astro', 'Vue.js', 'Tailwind CSS', 'DaisyUI', 'PixiJS','TypeScript'],
     image: "/eitaar_dev.png",
-    github: 'https://github.com/yourusername/portfolio',
+    github: 'https://github.com/eitaar/eitaar.dev',
     demo: 'https://eitaar.dev'
   },
   {
@@ -56,12 +56,18 @@ const projects = ref<Project[]>([
     description: 'A third-party Kahoot! client without kahoot.js-latest. Built with Nuxt',
     techStack: ['Nuxt', 'Vue.js', 'JavaScript'],
     image: "/wahoot.png",
-    github: "",
+    github: "https://github.com/eitaar/Wahoot",
     demo: 'https://wahoot.eitaar.dev'
   }
 ]);
 
 onMounted(() => {
-  new Splide('.splide').mount();
+  new Splide('.splide',{
+    gap: '1vw',
+  }).mount();
 });
+
+function openUrl(url:string) {
+  window.open(url, '_blank');
+}
 </script>
