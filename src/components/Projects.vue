@@ -1,14 +1,13 @@
 <template>
 <div class="w-9/10 lg:w-8/10">
   <div class="splide h-full" aria-label="Splideの基本的なHTML">
-    <div class="splide__track h-full rounded-xl">
-      <ul class="splide__list">
-        <li class="splide__slide" v-for="project in projects" :key="project.id">
-          <div class="flex bg-base-200 h-full font-Quantico">
+    <div class="splide__track h-full">
+      <div class="splide__list">
+        <div class="splide__slide bg-base-200" v-for="project in projects" :key="project.id">
+          <div class="flex h-full font-Quantico">
             <div class="flex flex-col lg:flex-row w-full h-full py-4 px-4">
-              <div class="w-full lg:w-3/5">
-                <img :src="project.image" alt="Project Image" class="rounded-xl object-fit">
-                <a :href="project.demo" target="_blank" class="absolute inset-0 flex items-center justify-center"/>
+              <div class="w-full lg:w-3/5"  @click="openUrl(project.demo)">
+                <img :src="project.image" alt="Project Image" class="rounded-xl object-fit cursor-pointer">
               </img>
               </div>
               <div class="w-full lg:w-2/5 flex flex-col justify-start items-start flex-wrap">
@@ -17,12 +16,11 @@
                   <span v-for="tech in project.techStack" :key="tech" class="badge badge-primary ">{{ tech }}</span>
                 </div>
                 <p class="text-md lg:text-lg text-center w-full py-2 px-4">{{ project.description }}</p>
-                
               </div>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -64,6 +62,12 @@ const projects = ref<Project[]>([
 ]);
 
 onMounted(() => {
-  new Splide('.splide').mount();
+  new Splide('.splide',{
+    gap: '1vw',
+  }).mount();
 });
+
+function openUrl(url:string) {
+  window.open(url, '_blank');
+}
 </script>
