@@ -1,7 +1,7 @@
 ---
 import Default from './Default.vue';
 import Footer from './Footer.astro';
-const {title,loadNavBar} = Astro.props;
+const {title,loadNavBar,loadFooter} = Astro.props;
 ---
 
 <html lang="en">
@@ -34,7 +34,7 @@ const {title,loadNavBar} = Astro.props;
   <body>
 			{!loadNavBar && <Default />}
       <slot/>
-      <Footer/>
+      {!loadFooter && <Footer />}
   </body>
 </html>	
 
