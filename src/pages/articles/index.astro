@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Articles from "../../components/articles/Articles.vue";
+import "../../styles/global.css";
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('articles')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+<Layout title="Articles" loadFooter=false>
+  <main>
+    <Articles posts={posts} />
+  </main>
+</Layout>
+

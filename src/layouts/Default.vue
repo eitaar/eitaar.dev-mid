@@ -2,7 +2,7 @@
   <header class="">
     <div ref="navbar" class="navbar bg-base-100" >
       <div class="navbar-start">
-        <p class="btn btn-ghost btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl font-Roboto" href="/">eitaar.dev</p>
+        <a class="btn btn-ghost font-Quantico" href="/">eitaar.dev</a>
       </div>
       <div class="navbar-end gap-2">
         <!--Navigation links-->

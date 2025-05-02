@@ -30,8 +30,8 @@
 </template>
 
 <script setup>
-import Sun from '../components/svg/sun.vue';
-import Moon from '../components/svg/moon.vue';
+import Sun from '../../components/svg/sun.vue';
+import Moon from '../../components/svg/moon.vue';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
