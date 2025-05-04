@@ -1,12 +1,15 @@
 # daisyUI 5
-daisyUI 5 is a CSS library for Tailwind CSS
+daisyUI 5 is a CSS library for Tailwind CSS 4
 daisyUI 5 provides class names for common UI components
 
-[docs](http://daisyui.com)
+- [daisyUI 5 docs](http://daisyui.com)
+- [Guide: How to use this file in LLMs and code editors](https://daisyui.com/docs/editor/)
+- [daisyUI 5 release notes](https://daisyui.com/docs/v5/)
+- [daisyUI 4 to 5 upgrade guide](https://daisyui.com/docs/upgrade/)
 
 ## daisyUI 5 install notes
 [install guide](https://daisyui.com/docs/install/)
-1. daisyUI 5 requires Tailwind CSS v4
+1. daisyUI 5 requires Tailwind CSS 4
 2. `tailwind.config.js` file is deprecated in Tailwind CSS v4. do not use `tailwind.config.js`. Tailwind CSS v4 only needs `@import "tailwindcss";` in the CSS file if it's a node dependency.
 3. daisyUI 5 can be installed using `npm i -D daisyui@latest` and then adding `@plugin "daisyui";` to the CSS file
 4. daisyUI is suggested to be installed as a dependency but if you really want to use it from CDN, you can use Tailwind CSS and daisyUI CDN files:
@@ -31,6 +34,7 @@ daisyUI 5 provides class names for common UI components
 8. suggested - if you need placeholder images, use https://picsum.photos/200/300 with the size you want
 9. suggested - when designing , don't add a custom font unless it's necessary
 10. don't add `bg-base-100 text-base-content` to body unless it's necessary
+11. For design decisions, use Refactoring UI book best practices
 
 daisyUI 5 class names are one of the following categories. these type names are only for reference and are not used in the actual code
 - `component`: the required component class
@@ -72,7 +76,7 @@ All the other themes are enabled and can be used by adding `data-theme="THEME_NA
 root scrollbar gutter is excluded. `daisy-` prefix is used for all daisyUI classes and console.log is disabled
 ```css
 @plugin "daisyui" {
-  themes: light, dark, cupcake, bumblebee --default, emerald, corporate, synthwave --prefersdark, retro, cyberpunk, valentine, halloween, garden, forest, aqua, lofi, pastel, fantasy, wireframe, black, luxury, dracula, cmyk, autumn, business, acid, lemonade, night, coffee, winter, dim, nord, sunset, caramellatte, abyss, silk;
+  themes: light, dark, cupcake, bumblebee --default, emerald, corporate, synthwave --prefersdark, retro, cyberpunk, valentine, halloween, garden, forest, aqua, lofi, pastel, fantasy, wireframe, black, luxury, dracula, cmyk, autumn, business, acid, lemonade, night, coffee, winter, dim, nord, sunset, caramellatte, test, silk;
   root: ":root";
   include: ;
   exclude: rootscrollgutter, checkbox;
@@ -157,10 +161,14 @@ A CSS file with Tailwind CSS, daisyUI and a custom daisyUI theme looks like this
 
   --border: 1px; /* border size */
 
-  --depth: 1; /* Adds a shadow and subtle 3D effect to components */
-  --noise: 0; /* Adds a subtle noise effect to components */
+  --depth: 1; /* only 0 or 1 – Adds a shadow and subtle 3D effect to components */
+  --noise: 0; /* only 0 or 1 - Adds a subtle noise effect to components */
 }
 ```
+#### Rules
+- All CSS variables above are required
+- Colors can be OKLCH or hex or other formats
+
 You can use https://daisyui.com/theme-generator/ to create your own theme
 
 ## daisyUI 5 components
@@ -613,20 +621,20 @@ Using CSS focus
 - The content can be any HTML element (not just `<ul>`)
 
 ### fieldset
-Fieldset is a container for grouping related form elements. It includes fieldset-legend as a title and fieldset-label as a description
+Fieldset is a container for grouping related form elements. It includes fieldset-legend as a title and label as a description
 
 [fieldset docs](https://daisyui.com/components/fieldset/)
 
 #### Class names
-- Component: `fieldset`
-- Parts: `fieldset-legend`, `fieldset-label`
+- Component: `fieldset`, `label`
+- Parts: `fieldset-legend`
 
 #### Syntax
 ```html
 <fieldset class="fieldset">
   <legend class="fieldset-legend">{title}</legend>
   {CONTENT}
-  <p class="fieldset-label">{description}</p>
+  <p class="label">{description}</p>
 </fieldset>
 ```
 

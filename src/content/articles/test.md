@@ -6,4 +6,9 @@ tags: ["Astro", "Blog"]
 image: /avatar.png
 ---
 
-Content Collections を使うと、記事管理が楽になりますね。
+## Content Collections を使うと、記事管理が楽になりますね。
+
+```js title=my.js
+console.log("hi");
+```
+

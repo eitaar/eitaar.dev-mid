@@ -20,10 +20,10 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 const isNightTheme = ref(false);
 onMounted(() => { 
-  isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'night';
+  isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'test';
 
   const observer = new MutationObserver(() => {
-    isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'night';
+    isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'test';
   });
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   onUnmounted(() => {
