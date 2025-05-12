@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-base-200 rounded-lg flex-2">
+  <div class="border-[1.5px] border-base-300 rounded-lg flex-2">
     <div class="flex flex-col justify-center items-center">
       <h1 class="text-3xl font-bold font-Quantico text-center w-full link py-2">Github Stats</h1>
       <!-- stats -->

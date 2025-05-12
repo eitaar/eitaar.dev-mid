@@ -55,22 +55,6 @@ window.addEventListener('beforeunload', () => {
   window.scrollTo(0, 0);
 });
 
-// Animate the .TOP element
-if (window.innerWidth > 1024) {
-  gsap.to('.TOP', {
-    x: '-40vw',
-    scrollTrigger: {
-      trigger: '.TOP',
-      start: 'top+=1vh top',
-      end: 'bottom top',
-      markers: false,
-      scrub: true,
-      pin: true,
-    }
-  });
-} else {
-}
-
 function scrollToAbout() {
   const target = document.querySelector('.ABOUT');
   if (target) {
