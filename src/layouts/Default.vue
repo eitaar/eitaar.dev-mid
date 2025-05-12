@@ -13,7 +13,7 @@
         </label>
         <!--Dark/Light mode toggle btn-->
         <label class="swap swap-rotate btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" aria-label="toggle-theme">
-          <input type="checkbox" data-toggle-theme="night,nord"/>
+          <input type="checkbox" data-toggle-theme="test,nord"/>
           <!-- sun icon -->
           <Sun class=" w-full"/>
           <!-- moon icon -->

@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Articles from "../../components/articles/Articles.vue";
 import "../../styles/global.css";
 import { getCollection } from 'astro:content';
+import { Icon } from "astro-icon/components";
 
 const posts = (await getCollection('articles')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -10,7 +11,9 @@ const posts = (await getCollection('articles')).sort(
 ---
 <Layout title="Articles" loadFooter=false>
   <main>
-    <Articles posts={posts} />
+    <Articles posts={posts}>
+      <Icon name="mdi:image-off-outline" slot="noImage" width={"100%"} height={"100%"}/>
+    </Articles>
   </main>
 </Layout>
 

@@ -1,8 +1,11 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-    <div v-for="post in posts" :key="post.id" class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+    <div v-for="post in posts" :key="post.id" class="card card-border bg-base-100 shadow-md">
       <figure v-if="post.data.image">
-        <img :src="post.data.image" :alt="post.data.title" class="w-full h-48 object-contain" />
+        <img :src="post.data.image" :alt="post.data.title" class="w-full h-30 lg:h-48 object-contain pt-4" />
+      </figure>
+      <figure v-else class="w-full h-30 lg:h-48 object-contain flex items-center justify-center">
+        <slot name="noImage"/>
       </figure>
       <div class="card-body">
         <h2 class="card-title text-primary">
