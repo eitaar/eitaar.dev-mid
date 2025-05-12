@@ -1,28 +1,24 @@
 <template>
-<div class="w-9/10 lg:w-8/10">
-  <div class="splide h-full" aria-label="Splideの基本的なHTML">
-    <div class="splide__track h-full">
-      <div class="splide__list">
-        <div class="splide__slide bg-base-200" v-for="project in projects" :key="project.id">
-          <div class="flex h-full font-Quantico">
-            <div class="flex flex-col lg:flex-row w-full h-full py-4 px-4">
-              <div class="w-full lg:w-3/5"  @click="openUrl(project.demo)">
-                <img :src="project.image" alt="Project Image" class="rounded-xl object-fit cursor-pointer">
-              </img>
-              </div>
-              <div class="w-full lg:w-2/5 flex flex-col justify-start items-start flex-wrap">
-                <h3 class="w-full text-center font-bold text-3xl lg:text-4xl py-5 underline">{{ project.title }}</h3>
-                <div class="flex flex-wrap gap-2 mb-4 items-center justify-center container">
-                  <span v-for="tech in project.techStack" :key="tech" class="badge badge-primary ">{{ tech }}</span>
-                </div>
-                <p class="text-md lg:text-lg text-center w-full py-2 px-4">{{ project.description }}</p>
+<div class="">
+  <section class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide" v-for="project in projects" :key="project.id">
+          <div class="card bg-base-100 shadow-xl image-full object-cover">
+            <figure><img :src="project.image" alt="Project Image" class="object-contain"/></figure>
+            <div class="card-body">
+              <h2 class="card-title">{{ project.title }}</h2>
+              <p>{{ project.description }}</p>
+              <div class="card-actions justify-end">
+                <button @click="openUrl(project.github)" class="btn btn-primary">GitHub</button>
+                <button @click="openUrl(project.demo)" class="btn btn-secondary">Demo</button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
-  </div>
+  </section>
 </div>
 </template>
 <script setup lang="ts">

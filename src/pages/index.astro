@@ -21,18 +21,21 @@ import { Icon } from 'astro-icon/components';
         <p class="link text-3xl lg:text-5xl font-bold tracking-tighter my-1" slot="ProjectLink" id="projectLink">Projects</p>
     </Top>
   </div>
-
-    <div class="w-9/10 mx-auto flex flex-row lg:flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap lg:min-h-screen">
+    <div class="w-full h-[7.5vh]">
       <h2 class="text-center text-5xl font-bold font-Quantico link ABOUT my-4 w-full">About</h2>
-      <!-- cards -->
-      <About />
-      <Skills />
-      <Interests />
-      <Stats client:visible/>
     </div>
-    <div class="w-full flex flex-col items-center justify-start gap-1 lg:gap-2 flex-wrap overflow-x-hidden">
-      <h2 class="text-center text-5xl font-bold font-Quantico link PROJECTS w-full">Projects</h2>
-      <Projects client:idle class="my-4"/>
+    <div class="w-9/10  flex flex-col lg:flex-row items-center mx-auto justify-start gap-1 lg:gap-2 flex-wrap lg:h-[92.5vh] p-2">
+      <!-- cards -->  
+      <div class="flex-1 flex flex-col gap-2 h-full">
+        <About/>
+        <Skills/>
+        <Interests/>
+        <Stats client:visible/>
+      </div>
+      <div class="flex-1 flex flex-col gap-2 h-full">
+        <Projects client:visible/>
+        <Skills/>
+        <Skills/>
       </div>
     </div>
 </Layout>
@@ -42,7 +45,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { createPixi } from '../assets/src/top.ts'
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); 
 
 console.log("using GSAP: ", gsap.version);
 
