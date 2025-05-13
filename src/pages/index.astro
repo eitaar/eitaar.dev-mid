@@ -73,15 +73,4 @@ function scrollToProjects() {
   }
 }
 
-// Attach the click event listener to the link
-document.addEventListener('DOMContentLoaded', () => {
-  const plink = document.getElementById('projectLink');
-  const alink = document.getElementById('aboutLink');
-  if (plink && alink) {
-    plink.addEventListener('click', scrollToProjects);
-    alink.addEventListener('click', scrollToAbout);
-  } else {
-    console.error('err');
-  }
-});
 </script>
