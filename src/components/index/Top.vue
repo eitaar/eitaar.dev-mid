@@ -12,7 +12,7 @@
       </label>
       <!-- Dark/Light mode toggle btn -->
       <label class="swap swap-rotate btn btn-square btn-accent btn-md lg:btn-lg border-[1.5px] border-base-300 p-1" aria-label="toggle theme">
-        <input type="checkbox" data-toggle-theme="test,nord" />
+        <input type="checkbox" data-toggle-theme="cndark,cnlight" />
         <Moon class="w-full" />
         <Sun class="w-full" />
       </label>

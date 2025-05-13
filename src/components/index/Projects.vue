@@ -10,8 +10,8 @@
               <h2 class="card-title">{{ project.title }}</h2>
               <p>{{ project.description }}</p>
               <div class="card-actions justify-end">
-                <button @click="openUrl(project.github)" class="btn btn-primary">GitHub</button>
-                <button @click="openUrl(project.demo)" class="btn btn-secondary">Demo</button>
+                <button @click="openUrl(project.github)" class="btn btn-link text-neutral-content">GitHub</button>
+                <button @click="openUrl(project.demo)" class="btn btn-primary">Demo</button>
               </div>
             </div>
           </div>

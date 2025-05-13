@@ -1,5 +1,5 @@
 <template>
-  <div class="border-[1.5px] border-base-300 rounded-lg flex-2">
+  <div class="border-[1.5px] border-base-300 rounded-lg flex-2 shadow">
     <div class="flex flex-col justify-center items-center">
       <h1 class="text-3xl font-bold font-Quantico text-center w-full link py-2">Github Stats</h1>
       <!-- stats -->
@@ -25,10 +25,10 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 const isNightTheme = ref(false);
 onMounted(() => { 
-  isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'test';""
+  isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'cndark';""
 
   const observer = new MutationObserver(() => {
-    isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'test';
+    isNightTheme.value = document.documentElement.getAttribute('data-theme') === 'cndark';
   });
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   onUnmounted(() => {
