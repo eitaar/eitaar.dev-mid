@@ -7,10 +7,10 @@
         <!-- stats -->
           <div class="flex flex-row justify-around items-center gap-2 w-full h-full">
             <div class="flex-1 h-full">
-              <img alt="Top Langs" class="object-contain mx-auto" src="https://github-readme-stats.vercel.app/api?username=eitaar&theme=transparent&hide_border=true&count_private=true"/>
+              <img alt="Top Langs" class="object-contain mx-auto" src="https://github-readme-stats.vercel.app/api?username=eitaar&hide_border=true&count_private=true&show_icons=true&bg_color=09090b&title_color=fafafa&text_color=a1a1aa&icon_color=fafafa"/>
             </div>
             <div class="flex-1 h-full">
-              <img alt="github stats" class="object-contain mx-auto" src="https://github-readme-stats.vercel.app/api/top-langs/?username=eitaar&theme=transparent&hide_border=true&layout=compact"/>
+              <img alt="github stats" class="object-contain mx-auto" src="https://github-readme-stats.vercel.app/api/top-langs/?username=eitaar&theme=transparent&hide_border=true&layout=compact&bg_color=09090b&title_color=fafafa&text_color=a1a1aa"/>
             </div>
           </div>
         <!-- snake -->
