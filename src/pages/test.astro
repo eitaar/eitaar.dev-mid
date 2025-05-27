@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Test Page" loadNavBar=false>
+  <div class="h-screen w-full bg-base-100 opacity-40 lg:opacity-100" id="PIXI"/> 
+</Layout>
+<script>
+  import { createPixi } from "../assets/src/danmaku";
+  document.addEventListener("DOMContentLoaded", () => {
+    createPixi();
+  });
+</script>

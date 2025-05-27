@@ -47,8 +47,6 @@ export async function createPixi() {
     autoDensity: true,
     powerPreference: 'high-performance'
   });
-  app.stage.eventMode = 'static';
-  app.stage.hitArea = app.screen;  
   canvasArea.appendChild(app.canvas);
   const particles: Particle[] = [];
 
@@ -83,8 +81,10 @@ export async function createPixi() {
       await Util.sleep(20);
     }
   }
-
+  app.stage.eventMode = 'static';
+  app.stage.hitArea = app.screen;  
   app.stage.on('pointerdown', (e: PIXI.FederatedPointerEvent) => {
+    console.log('Pointer down at:', e.global.x, e.global.y);
     void spawnDanmakuPattern(e.global.x, e.global.y);
   });
   let lastSpawnTime = 3000;
