@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+---
+
+<Layout title="Test Page" loadNavBar=false>
+  <button 
+    class="btn btn-primary" 
+    id="btn"
+  >
+    テーマ切り替え
+  </button>
+</Layout>
+
+<script>
+  import { useTheme} from "../assets/src/theme";
+  const {ToggleTheme} = useTheme();
+  const btn = document.getElementById("btn"); 
+  btn?.addEventListener("click", () => {
+    ToggleTheme();
+  });
+
+</script>

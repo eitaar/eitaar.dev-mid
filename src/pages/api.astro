@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+const json = await fetch("https://get-github-stats.eitaar.workers.dev/eitaar")
+  .then((res) => {
+    return res.json(); // return文を追加
+  })
+  .catch((err) => {
+    console.error("Error fetching GitHub stats:", err);
+    return {};
+  });
+const text = JSON.stringify(json);
+---
+<Layout title="API Page" loadNavBar={false}>
+  <div class="w-9/10 h-screen flex flex-col gap-3 mx-auto">
+    <h1 class="text-2xl font-bold">API Page</h1>
+    <p>{text}</p>
+  </div>
+</Layout>
+<script>
+  import {fetcher} from "../assets/src/fetcher.ts";
+  
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      const result = await fetcher();
+      console.log(result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+</script>

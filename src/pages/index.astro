@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import About from '../components/index/astro/About.astro';
+import Interests from '../components/index/astro/Interests.astro';
+import "../styles/global.css";
+import Skills from '../components/index/astro/Skills.astro';
+---
+<Layout title="eitaar.dev">
+  <div class="w-9/10 h-screen flex flex-col lg:flex-row gap-3 mx-auto">
+    <div class="flex-1 flex flex-col gap-3">
+      <About />
+      <Skills/>
+      <Interests />
+      <About />
+      <About />
+    </div>
+    <div class="flex-1 flex flex-col gap-3">
+      <About />
+      <Skills/>
+      <About />
+  </div>
+</Layout>

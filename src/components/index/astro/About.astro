@@ -1,0 +1,12 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import avatar from "../../../assets/img/avatar.png";
+import AboutJSX from '../jsx/AboutJSX';
+---
+<AboutJSX client:visible>
+  <Image src={avatar} alt="Avatar" slot="avatarImg" width={100} height={100} class="rounded-lg"/>
+  <Icon name="ri:twitter-x-fill" slot="xIcon" class="h-8 w-auto"/>
+  <Icon name="ri:github-fill" slot="githubIcon" class="h-8 w-auto"/>
+  <Icon name="ri:discord-fill" slot="discordIcon" class="h-8 w-auto"/>
+</AboutJSX>
